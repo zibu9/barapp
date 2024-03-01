@@ -30,9 +30,6 @@ class CreateNewUser implements CreatesNewUsers
             ],
             'phone' => ['string', 'max:255'],
             'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['string', 'max:255'],
-            'address' => ['string', 'max:255'],
-            'city' => ['string', 'max:255'],
         ])->validate();
 
         $user =  User::create([
@@ -40,10 +37,7 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'phone' => $input['phone'],
             'firstname' => $input['firstname'],
-            'lastname' => $input['lastname'],
-            'address' => $input['address'],
-            'city' => $input['city'],
-            'role_id' => 4,
+            'role_id' => (User::count() === 0) ? 1 : 4,
             'password' => Hash::make($input['password']),
         ]);
 

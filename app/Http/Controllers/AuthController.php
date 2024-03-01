@@ -41,9 +41,9 @@ class AuthController extends Controller
         //dd($request->all());
         $user = $this->authService->register($request->all());
         Auth::login($user);
-        if (!$user->hasVerifiedEmail()) {
-            return to_route('verification.notice');
-        }
+        // if (!$user->hasVerifiedEmail()) {
+        //     return to_route('verification.notice');
+        // }
         return to_route('home');
     }
 
