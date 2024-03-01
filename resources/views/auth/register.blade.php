@@ -5,8 +5,11 @@
 @section('main')
 <div class="register-box">
     <div class="login-logo">
-        <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-c"
-        style="opacity: .8">
+        {{-- <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-c"
+        style="opacity: .8"> --}}
+        <a href="" class="brand-link" style="text-decoration: none;">
+            <h1 class="font-weight-bold text-primary">Bar<span class="brand-text font-weight-bold text-danger">APP</span><br></h1>
+        </a>
     </div>
     <div class="card">
       <div class="card-body register-card-body">
@@ -36,17 +39,6 @@
               </div>
             </div>
           </div>
-          @error('lastname')
-          <div class="text-danger">{{ $message }}</div>
-          @enderror
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Last Name" name="lastname">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-user"></span>
-              </div>
-            </div>
-          </div>
           @error('email')
           <div class="text-danger">{{ $message }}</div>
           @enderror
@@ -69,28 +61,7 @@
               </div>
             </div>
           </div>
-          @error('address')
-          <div class="text-danger">{{ $message }}</div>
-          @enderror
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Address" name="address">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-home"></span>
-              </div>
-            </div>
-          </div>
-          @error('city')
-          <div class="text-danger">{{ $message }}</div>
-          @enderror
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="City" name="city">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-home"></span>
-              </div>
-            </div>
-          </div>
+
           @error('password')
           <div class="text-danger">{{ $message }}</div>
           @enderror

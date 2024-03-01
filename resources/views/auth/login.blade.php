@@ -6,8 +6,11 @@
 
 <div class="login-box">
     <div class="login-logo">
-        <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-c"
-        style="opacity: .8">
+        {{-- <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-c"
+        style="opacity: .8"> --}}
+        <a href="" class="brand-link" style="text-decoration: none;">
+            <h1 class="font-weight-bold text-primary">Bar<span class="brand-text font-weight-bold text-danger">APP</span><br></h1>
+        </a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
