@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('depenses', function (Blueprint $table) {
+        Schema::create('limit_stocks', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
-            $table->decimal('amount', 10, 4);
+            $table->foreignId('product_id')->constrained();
+            $table->integer('minimum_stock');
+            $table->integer('maximum_stock');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('depenses');
+        Schema::dropIfExists('limit_stocks');
     }
 };

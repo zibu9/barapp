@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('depenses', function (Blueprint $table) {
+        Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
-            $table->decimal('amount', 10, 4);
+            $table->foreignId('user_id')->constrained();
+            $table->string('action');
+            $table->string('entity_type');
+            $table->unsignedBigInteger('entity_id');
+            $table->json('changes');
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('depenses');
+        Schema::dropIfExists('logs');
     }
 };

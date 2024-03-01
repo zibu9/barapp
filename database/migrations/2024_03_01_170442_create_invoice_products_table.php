@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('invoice_product', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_id')->constrained();
-            $table->string('description');
+            $table->foreignId('invoice_id')->constrained();
+            $table->foreignId('product_id')->constrained();
+            $table->string('selling_type');
             $table->integer('quantite');
-            $table->decimal('purchase_price_per_locker', 10, 4);
-            $table->decimal('sale_price_per_locker', 10, 4);
-            $table->decimal('purchase_price_per_bottle', 10, 4);
-            $table->decimal('selling_price_per_bottle', 10, 4);
+            $table->decimal('unitaire_price');
+            $table->decimal('total_price');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('invoice_product');
     }
 };

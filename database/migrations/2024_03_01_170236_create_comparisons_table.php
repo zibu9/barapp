@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('comparisons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_id')->constrained();
             $table->string('description');
-            $table->integer('quantite');
-            $table->decimal('purchase_price_per_locker', 10, 4);
-            $table->decimal('sale_price_per_locker', 10, 4);
-            $table->decimal('purchase_price_per_bottle', 10, 4);
-            $table->decimal('selling_price_per_bottle', 10, 4);
+            $table->decimal('amount');
+            $table->dateTime('date_compare');
+            $table->string('devise');
+            $table->string('observation');
+            $table->string('observation_amount');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('comparisons');
     }
 };

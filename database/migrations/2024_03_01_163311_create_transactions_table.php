@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->enum('operation', ['entree', 'sortie']);
-            $table->enum('type', ['gros', 'details']);
+            $table->enum('type', ['big', 'details']);
             $table->integer('quantity');
-            $table->decimal('prix_achat_par_casier', 10, 4);
-            $table->decimal('prix_vente_par_casier', 10, 4);
-            $table->decimal('prix_achat_par_bouteille', 10, 4);
-            $table->decimal('prix_vente_par_bouteille', 10, 4);
+            $table->decimal('purchase_price_per_locker', 10, 4);
+            $table->decimal('sale_price_per_locker', 10, 4);
+            $table->decimal('purchase_price_per_bottle', 10, 4);
+            $table->decimal('selling_price_per_bottle', 10, 4);
             $table->timestamps();
         });
     }
