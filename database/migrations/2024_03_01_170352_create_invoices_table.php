@@ -17,8 +17,6 @@ return new class extends Migration
             $table->date('deadline_date');
             $table->decimal('total_amount');
             $table->string('status');
-            $table->foreignId('payment_method_id')->constrained();
-            $table->foreignId('subscription_id')->nullable()->constrained();
             $table->text('description')->nullable();
             $table->timestamps();
         });
