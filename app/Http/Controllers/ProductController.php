@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
+use App\Services\Product\ProductService;
+use App\Http\Requests\StoreProductRequest;
 
 class ProductController extends Controller
 {
+    protected $productService;
+
+    public function __construct(ProductService $productService)
+    {
+        $this->productService = $productService;
+    }
+
     public function index()
     {
         $products = Product::all();
@@ -18,19 +26,9 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        $request->validate([
-            'type_id' => 'required|exists:product_types,id',
-            'description' => 'required',
-            'quantite' => 'required|integer',
-            'purchase_price_per_locker' => 'required|numeric',
-            'sale_price_per_locker' => 'required|numeric',
-            'purchase_price_per_bottle' => 'required|numeric',
-            'selling_price_per_bottle' => 'required|numeric',
-        ]);
-
-        Product::create($request->all());
+        $this->productService->createProduct($request->validated());
 
         return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
@@ -41,19 +39,9 @@ class ProductController extends Controller
         return view('products.edit', compact('product'));
     }
 
-    public function update(Request $request, Product $product)
+    public function update(StoreProductRequest $request, Product $product)
     {
-        $request->validate([
-            'type_id' => 'required|exists:product_types,id',
-            'description' => 'required',
-            'quantite' => 'required|integer',
-            'purchase_price_per_locker' => 'required|numeric',
-            'sale_price_per_locker' => 'required|numeric',
-            'purchase_price_per_bottle' => 'required|numeric',
-            'selling_price_per_bottle' => 'required|numeric',
-        ]);
-
-        $product->update($request->all());
+        $this->productService->updateProduct($product, $request->validated());
 
         return redirect()->route('products.index')
             ->with('success', 'Product updated successfully');
@@ -61,7 +49,7 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        $product->delete();
+        $this->productService->deleteProduct($product);
 
         return redirect()->route('products.index')
             ->with('success', 'Product deleted successfully');
