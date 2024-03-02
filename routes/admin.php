@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CurrencyController;
 
 /*
@@ -19,4 +20,5 @@ use App\Http\Controllers\CurrencyController;
 
 Route::get('/', [AdminController::class, 'index'])->name('index');
 Route::resource('currencies', CurrencyController::class)->only('index', 'edit', 'store');
+Route::resource('products', ProductController::class);
 
