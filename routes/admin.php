@@ -18,7 +18,5 @@ use App\Http\Controllers\CurrencyController;
 */
 
 Route::get('/', [AdminController::class, 'index'])->name('index');
-Route::resource('plans', PlanController::class)->only(['index', 'create']);
-Route::resource('features', FeatureController::class)->only('index', 'edit', 'store');
 Route::resource('currencies', CurrencyController::class)->only('index', 'edit', 'store');
 

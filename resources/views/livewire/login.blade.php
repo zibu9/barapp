@@ -1,7 +1,7 @@
 <div>
         <div class="form-group">
             <select class="form-control" wire:model.live="loginType">
-                <option value="email">Email</option>
+                <option value="email">Email/Username</option>
                 <option value="phone">Phone Number</option>
             </select>
         </div>
