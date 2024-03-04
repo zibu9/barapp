@@ -20,7 +20,7 @@
         </div>
         <!-- /.content-header -->
         <div class="container-fluid">
-            <button type="button" class="btn bg-primary mb-2"><i class="fas fa-plus"></i></button>
+            <a href="{{ route('admin.products.create') }}" class="btn bg-primary mb-2 disable-on-load"><i class="fas fa-plus"></i></a>
             <div class="card card-success">
                <div class="card-header">
                  <h3 class="card-title">Les Boissons</h3>

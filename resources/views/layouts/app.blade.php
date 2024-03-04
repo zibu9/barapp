@@ -85,6 +85,15 @@
     <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
     <script src="{{ asset('plugins/flot-old/jquery.flot.pie.min.js') }}"></script>
     @yield('script')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let button = document.querySelector('.disable-on-load');
+            button.disabled = true;
+            window.addEventListener('load', function() {
+                button.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>
 @else
