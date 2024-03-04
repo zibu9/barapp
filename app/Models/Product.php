@@ -25,4 +25,9 @@ class Product extends Model
         return $this->belongsTo(Type::class);
     }
 
+    public function limitStock()
+    {
+        return $this->hasOne(LimitStock::class);
+    }
+
 }

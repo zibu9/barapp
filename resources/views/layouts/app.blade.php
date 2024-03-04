@@ -87,7 +87,7 @@
     @yield('script')
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let button = document.querySelector('.disable-on-load');
+            let button = document.querySelector('.btn');
             button.disabled = true;
             window.addEventListener('load', function() {
                 button.disabled = false;

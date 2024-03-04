@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class LimitStock extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'product_id',
+        'minimum_stock',
+        'maximum_stock',
+    ];
 }

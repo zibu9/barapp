@@ -1,7 +1,7 @@
 @admin
 <li class="nav-header user-panel pb-2 mb-2 d-flex" style="color: #4b646f;">GESTION BOISSON</li>
 <li class="nav-item">
-    <a href="{{ route('admin.products.index') }}" class="nav-link">
+    <a href="{{ route('admin.products.index') }}" class="nav-link{{ request()->routeIs('admin.products.*') ? ' active' : '' }}">
         <i class="fas fa-glass-cheers"></i>
         <p>
         Boissons
