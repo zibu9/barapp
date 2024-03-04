@@ -21,6 +21,8 @@ class StoreProductRequest extends FormRequest
             'sale_price_per_locker' => 'required|numeric',
             'purchase_price_per_bottle' => 'required|numeric',
             'selling_price_per_bottle' => 'required|numeric',
+            'minimum_stock' => 'required|integer',
+            'maximum_stock' => 'required|integer',
         ];
     }
 }

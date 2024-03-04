@@ -23,88 +23,40 @@
             <!-- row -->
               <div class="row">
                             <!-- left column -->
-              <div class="col-md-3"></div>
-              <div class="col-md-6">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
                 <!-- general form elements -->
                 <div class="card card-primary">
                   <div class="card-header">
-                    <h3 class="card-title">Nouvel Agent</h3>
+                    <h3 class="card-title">Creer Boissons</h3>
                   </div>
                   <!-- /.card-header -->
                   <!-- form start -->
-                  <form role="form" method="POST" action="http://127.0.0.1:3000/salonabb/admin/new_agent">
-                    <div class="card-body">
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">Nom</span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="Name" name="nom">
-                    </div>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">Postnom</span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="Last Name" name="postnom">
-                    </div>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">Prenom</span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="Surname" name="prenom">
-                    </div>
-
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">Salaire Fixe</span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="Salaire fixe" name="safi">
-                    </div>
-
-
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">Taux prestation</span>
-                      </div>
-                      <input type="hidden" class="form-control" placeholder="exemple 0.3 pour 30%" name="taux_pres">
-                    </div>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">Prime</span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="prime" name="prime">
-                    </div>
-
-                    <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">Categorie</span>
-                          </div>
-                            <select class="custom-select" name="categorie">
-                              <option>Salon Homme</option>
-                              <option>Salon Femme</option>
-                              <option>homme_huilerie</option>
-                              <option>Mixte</option>
-                              <option>Autre</option>
-                            </select>
-                    </div>
-
-                    <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">Type d'agent</span>
-                          </div>
-                        <select class="custom-select" name="type">
-                            <option>Coiffeur</option>
-                            <option>Barman</option>
-                            <option>Receptionniste</option>
-                            <option>Receptionniste Coiffeuse</option>
-                            <option>Receptioniste Barman</option>
-                            <option>Chargé de la Sécurité</option>
-                            <option>Chargé d'approvisionnement et Caisses</option>
-                            <option>Gérant - Contrôleur de gestion</option>
-                            <option>Réceptionniste - Salon Dames &amp; Maquilleuse</option>
-                            <option>Coiffeuse</option>
-                            <option>Vernisseur</option>
-                        </select>
-                    </div>
+                  <form role="form" method="POST" action="{{ route('admin.products.store') }}">
+                    <div class="card-body row">
+                    @foreach($fields as $field)
+                        @if (!in_array($field, ['id', 'created_at', 'updated_at', 'deleted_at']))
+                                @if ($field === 'type_id')
+                                <div class="input-group mb-3 col-md-6">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">{{ $field }}</span>
+                                    </div>
+                                    <select class="custom-select" name="{{ $field }}">
+                                        @foreach($types as $type)
+                                            <option value="{{ $type->id }}">{{ $type->content }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @else
+                                    <div class="input-group mb-3 col-md-6">
+                                        <div class="input-group-prepend">
+                                        <span class="input-group-text">{{ $field }}</span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="{{ $field }}" name="{{ $field }}">
+                                    </div>
+                                @endif
+                        @endif
+                    @endforeach
                     </div>
 
                     <div class="card-footer">

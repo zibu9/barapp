@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Type;
 use App\Models\Product;
+use Illuminate\Support\Facades\Schema;
 use App\Services\Product\ProductService;
 use App\Http\Requests\StoreProductRequest;
 
@@ -23,7 +25,11 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.create');
+        $types = Type::all();
+        $product = Product::first();
+        $fields = Schema::getColumnListing('products');
+        //dd($fields);
+        return view('products.create', compact('types', 'fields'));
     }
 
     public function store(StoreProductRequest $request)
