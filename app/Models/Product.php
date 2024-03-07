@@ -18,6 +18,8 @@ class Product extends Model
         'sale_price_per_locker',
         'purchase_price_per_bottle',
         'selling_price_per_bottle',
+        'minimum_stock',
+        'maximum_stock',
     ];
 
     public function type()
