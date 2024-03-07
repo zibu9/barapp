@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CurrencyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +31,4 @@ Route::get('/verification/notice', [AuthController::class, 'showVerificationNoti
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [AuthController::class, 'index'])->name('home');
 });
+

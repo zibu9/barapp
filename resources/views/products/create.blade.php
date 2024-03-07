@@ -39,7 +39,7 @@
                                 @if ($field === 'type_id')
                                 <div class="input-group mb-3 col-md-6">
                                     <div class="input-group-prepend">
-                                      <span class="input-group-text">{{ $field }}</span>
+                                      <span class="input-group-text">{{ __('products.fields.'.$field) }}</span>
                                     </div>
                                     <select class="custom-select" name="{{ $field }}">
                                         @foreach($types as $type)
@@ -50,9 +50,9 @@
                                 @else
                                     <div class="input-group mb-3 col-md-6">
                                         <div class="input-group-prepend">
-                                        <span class="input-group-text">{{ $field }}</span>
+                                        <span class="input-group-text">{{ __('products.fields.'.$field) }}</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="{{ $field }}" name="{{ $field }}">
+                                        <input type="text" class="form-control" placeholder="{{ __('products.fields.'.$field) }}" name="{{ $field }}">
                                     </div>
                                 @endif
                         @endif
