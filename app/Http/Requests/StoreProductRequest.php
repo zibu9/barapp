@@ -14,7 +14,7 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'type_id' => 'required|exists:product_types,id',
+            'type_id' => 'required|exists:types,id',
             'description' => 'required',
             'quantite' => 'required|integer',
             'purchase_price_per_locker' => 'required|numeric',

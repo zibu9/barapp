@@ -4,7 +4,7 @@
         'fields' => [
             'type_id' => 'Type',
             'description' => 'Description',
-            'quantite' => 'Quantity',
+            'quantite' => 'Number bottle',
             'purchase_price_per_locker' => 'Purchase price per locker',
             'sale_price_per_locker' => 'Sale price per locker',
             'purchase_price_per_bottle' => 'Purchase price per bottle',

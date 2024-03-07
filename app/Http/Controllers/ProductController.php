@@ -35,7 +35,7 @@ class ProductController extends Controller
     {
         $this->productService->createProduct($request->validated());
 
-        return redirect()->route('products.index')
+        return redirect()->route('admin.products.index')
             ->with('success', 'Product created successfully.');
     }
 

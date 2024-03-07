@@ -33,6 +33,7 @@
                   <!-- /.card-header -->
                   <!-- form start -->
                   <form role="form" method="POST" action="{{ route('admin.products.store') }}">
+                    @csrf
                     <div class="card-body row">
                     @foreach($fields as $field)
                         @if (!in_array($field, ['id', 'created_at', 'updated_at', 'deleted_at']))
@@ -52,7 +53,9 @@
                                         <div class="input-group-prepend">
                                         <span class="input-group-text">{{ __('products.fields.'.$field) }}</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="{{ __('products.fields.'.$field) }}" name="{{ $field }}">
+                                        <input type="text" class="form-control @error($field)
+                                        is-invalid
+                                        @enderror" placeholder="{{ __('products.fields.'.$field) }}" name="{{ $field }}">
                                     </div>
                                 @endif
                         @endif
