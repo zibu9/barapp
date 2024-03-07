@@ -26,7 +26,6 @@ class ProductController extends Controller
     public function create()
     {
         $types = Type::all();
-        $product = Product::first();
         $fields = Schema::getColumnListing('products');
         return view('products.create', compact('types', 'fields'));
     }
