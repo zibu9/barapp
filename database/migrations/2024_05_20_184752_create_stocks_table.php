@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained()->onCascade('cascade');
+            $table->integer('entries');
+            $table->integer('exits');
+            $table->integer('final_stock');
+            $table->integer('initial_stock');
+            $table->integer('operation_date');
             $table->timestamps();
         });
     }
