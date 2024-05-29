@@ -51,17 +51,25 @@
                                     <td class=" text-center"></td>
                                 </tr>
                             </thead>
+                            @php
+                                $i=0;
+                            @endphp
                                 <tbody>
-                                   <tr>
-                                    <th scope="row">1</th>
-                                    <th scope="row">SAVANNA</th>
-                                    <td class="text-center">3000</td>
-                                    <td class="text-center">4000</td>
-                                    <td class="text-center">4000</td>
-                                    <td class="text-center">4000</td>
-                                    <td class="text-center">4000</td>
-                                    <td class=" text-center"><a href="" class="btn btn-sm btn-info">Edit</a></td>
-                                   </tr>
+                                    @foreach ($products as $product)
+                                    <tr>
+                                         <th scope="row">{{ $i+1 }}</th>
+                                         <td class="text-center">{{ $product->description }}</td>
+                                         <td class="text-center">{{ $product->quantite }}</td>
+                                         <td class="text-center">{{ round($product->purchase_price_per_bottle, 0) }}</td>
+                                         <td class="text-center">{{ round($product->purchase_price_per_locker, 0) }}</td>
+                                         <td class="text-center">{{ round($product->selling_price_per_bottle, 0) }}</td>
+                                         <td class="text-center">{{ round($product->sale_price_per_locker, 0) }}</td>
+                                         <td class=" text-center"><a href="" class="btn btn-sm btn-info">Edit</a></td>
+                                    </tr>
+                                    @php
+                                        $i++;
+                                    @endphp
+                                    @endforeach
 
                                 </tbody>
                            </table>
