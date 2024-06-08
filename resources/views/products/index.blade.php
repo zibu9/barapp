@@ -64,7 +64,7 @@
                                          <td class="text-center">{{ round($product->purchase_price_per_locker, 0) }}</td>
                                          <td class="text-center">{{ round($product->selling_price_per_bottle, 0) }}</td>
                                          <td class="text-center">{{ round($product->sale_price_per_locker, 0) }}</td>
-                                         <td class=" text-center"><a href="" class="btn btn-sm btn-info">Edit</a></td>
+                                         <td class=" text-center"><a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-info">Edit</a></td>
                                     </tr>
                                     @php
                                         $i++;

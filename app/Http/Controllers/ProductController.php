@@ -40,7 +40,9 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('products.edit', compact('product'));
+        $types = Type::all();
+        $fields = Schema::getColumnListing('products');
+        return view('products.edit', compact('product', 'types', 'fields'));
     }
 
     public function update(StoreProductRequest $request, Product $product)
