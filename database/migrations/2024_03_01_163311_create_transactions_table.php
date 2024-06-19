@@ -13,14 +13,17 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->enum('operation', ['entree', 'sortie']);
-            $table->enum('type', ['big', 'details']);
+            $table->enum('type', ['gros', 'details']);
+            $table->integer('entrees')->nullable();
+            $table->integer('sorties')->nullable();
+            $table->integer('stock_initial')->nullable();
+            $table->integer('stock_final')->nullable();
             $table->integer('quantity');
             $table->decimal('purchase_price_per_locker', 10, 4);
             $table->decimal('sale_price_per_locker', 10, 4);
             $table->decimal('purchase_price_per_bottle', 10, 4);
             $table->decimal('selling_price_per_bottle', 10, 4);
+            $table->date('date_op');
             $table->timestamps();
         });
     }
