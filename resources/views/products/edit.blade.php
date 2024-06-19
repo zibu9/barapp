@@ -32,9 +32,10 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="{{ route('admin.products.store') }}">
+            <form role="form" method="POST" action="{{ route('admin.products.update', $product->id) }}">
                 @csrf
-                    <div class="card-body">
+                @method('PUT')
+            <div class="card-body">
               <div class="card-body row">
                 @foreach ($fields as $field)
                     @if (!in_array($field, ['id', 'created_at', 'updated_at', 'deleted_at']))

@@ -17,6 +17,14 @@
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
+            <div class="content">
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                <!-- Le reste de votre contenu -->
+            </div>
         </div>
         <!-- /.content-header -->
         <div class="container-fluid">

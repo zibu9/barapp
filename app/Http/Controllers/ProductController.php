@@ -49,7 +49,7 @@ class ProductController extends Controller
     {
         $this->productService->updateProduct($product, $request->validated());
 
-        return redirect()->route('products.index')
+        return redirect()->route('admin.products.index')
             ->with('success', 'Product updated successfully');
     }
 
