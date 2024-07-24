@@ -70,5 +70,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\IsAdmin::class,
         'manager' => \App\Http\Middleware\IsManager::class,
         'locale' => \App\Http\Middleware\Locale::class,
+        'ensure.no.users' => \App\Http\Middleware\EnsureNoUsersExist::class,
     ];
 }

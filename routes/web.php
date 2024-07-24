@@ -1,5 +1,6 @@
 <?php
 
+use Laravel\Fortify\Features;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
@@ -18,10 +19,18 @@ use App\Http\Controllers\CurrencyController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
 
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::middleware(['ensure.no.users'])->group(function () {
+    Route::get('/register', function () {
+        if (Features::enabled(Features::registration())) {
+            return view('auth.register');
+        }
+        abort(404);
+    })->name('register');
+});
+
 
 
 Route::get('/verification/notice', [AuthController::class, 'showVerificationNotice'])

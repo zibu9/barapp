@@ -19,6 +19,9 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
+        if (User::count() > 0) {
+            abort(403);
+        }
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => [
