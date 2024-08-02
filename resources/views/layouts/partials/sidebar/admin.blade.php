@@ -1,7 +1,7 @@
 @admin
 <li class="nav-header user-panel pb-2 mb-2 d-flex" style="color: #4b646f;">GESTION BOISSON</li>
 <li class="nav-item has-treeview">
-    <a href="#" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
+    <a href="#" class="nav-link{{ request()->routeIs('admin.user.create') ? ' active' : '' }}">
         <i class="nav-icon fa fa-users"></i>
         <p>
         Utilisateurs
@@ -10,7 +10,7 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-        <a href="{{ route('admin.create.user') }}" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
+        <a href="{{ route('admin.user.create') }}" class="nav-link{{ request()->routeIs('admin.user.create') ? ' active' : '' }}">
             <i class="fa fa-plus nav-icon"></i>
             <p>Ajouter
             <span class="badge badge-info right">New</span>

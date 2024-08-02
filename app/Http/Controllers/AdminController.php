@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Services\AdminService;
 
 class AdminController extends Controller
@@ -21,6 +22,7 @@ class AdminController extends Controller
 
     public function createUser()
     {
-        return view('admin.create-user');
+        $roles = Role::all();
+        return view('admin.create-user', compact('roles'));
     }
 }

@@ -26,7 +26,6 @@
     <!-- /.content-header -->
     <!-- Main content -->
     <section class="content">
-        <div class="card-body">
         <div class="row">
             <div class="content">
                 @if(session('success'))
@@ -37,9 +36,49 @@
                 <!-- Le reste de votre contenu -->
             </div>
             <div class="col-md-1"></div>
-            <div class="col-md-10">
+                <div class="col-md-10">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                        <h3 class="card-title">Ajouter Utilisateur</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body row">
+                            <div class="form-group col-md-4">
+                                <label>Role</label>
+                                <select class="form-control" name="role_id">
+                                    @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->content }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="name">Prenom</label>
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Prenom">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="firstname">Nom</label>
+                                <input name="firstname" type="text" class="form-control" placeholder="nom">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="username">Nom Utilisateur</label>
+                                <input name="username" type="text" class="form-control" placeholder="Nom Utilisateur">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="name">Télephone</label>
+                                <input name="phone" type="text" class="form-control" placeholder="Ex : 82XXXXXXX">
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
 
-            </div>
+                        <div class="card-footer">
+                            <button wire:click.live="submitForm" class="btn btn-primary">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
             <!-- /.col-->
         </div>
         <!-- ./row -->
