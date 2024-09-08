@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Models\User;
 use App\Services\AdminService;
 
 class AdminController extends Controller
@@ -18,6 +19,12 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin.index');
+    }
+
+    public function users()
+    {
+        $users = User::all();
+        return view('admin.users', compact('users'));
     }
 
     public function createUser()

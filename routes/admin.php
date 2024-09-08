@@ -19,6 +19,7 @@ use App\Http\Controllers\CurrencyController;
 */
 
 Route::get('/', [AdminController::class, 'index'])->name('index');
+Route::get('/users', [AdminController::class, 'users'])->name('users.index');
 Route::get('/create-user', [AdminController::class, 'createUser'])->name('user.create');
 Route::resource('currencies', CurrencyController::class)->only('index', 'edit', 'store');
 Route::resource('products', ProductController::class);

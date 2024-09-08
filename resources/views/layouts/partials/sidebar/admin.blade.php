@@ -18,7 +18,7 @@
         </a>
         </li>
         <li class="nav-item">
-        <a href="#" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
+        <a href="{{ route('admin.users.index') }}" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
             <i class="fas fa-list nav-icon"></i>
             <p>Liste
             <span class="badge badge-warning right">All</span>
