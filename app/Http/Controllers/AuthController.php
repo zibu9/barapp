@@ -24,7 +24,7 @@ class AuthController extends Controller
                 return to_route('admin.index');
                 break;
             case 2:
-                return response()->json(['message' => 'Vous êtes un super gerant.']);
+                return to_route('manager.index');
                 break;
             case 3:
                 return response()->json(['message' => 'Vous êtes un super barman.']);
