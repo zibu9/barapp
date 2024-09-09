@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Dashborad')
+@section('title', 'Les Utilisateurs')
 @section('main')
     <section class="content">
         <!-- Content Header (Page header) -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use App\Services\AdminService;
+use App\Http\Requests\StoreUserRequest;
 
 class AdminController extends Controller
 {
@@ -31,5 +32,12 @@ class AdminController extends Controller
     {
         $roles = Role::all();
         return view('admin.create-user', compact('roles'));
+    }
+
+    public function storeUser(StoreUserRequest $request)
+    {
+        $this->adminService->createUser($request->validated());
+
+        return redirect()->route('admin.users.index')->with('success', 'Utilisateur créé avec succès');
     }
 }
