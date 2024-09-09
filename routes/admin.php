@@ -21,7 +21,18 @@ use App\Http\Controllers\CurrencyController;
 Route::get('/', [AdminController::class, 'index'])->name('index');
 Route::get('/users', [AdminController::class, 'users'])->name('users.index');
 Route::get('/create-user', [AdminController::class, 'createUser'])->name('user.create');
-Route::post('/admin/users/store', [AdminController::class, 'storeUser'])->name('user.store');
+Route::post('/users/store', [AdminController::class, 'storeUser'])->name('user.store');
 Route::resource('currencies', CurrencyController::class)->only('index', 'edit', 'store');
 Route::resource('products', ProductController::class);
+
+// Bloquer un utilisateur
+Route::post('/users/{id}/block', [AdminController::class, 'blockUser'])->name('blockUser');
+
+// Editer un utilisateur
+Route::get('/users/{id}/edit', [AdminController::class, 'editUser'])->name('editUser');
+Route::post('/users/{id}/update', [AdminController::class, 'updateUser'])->name('updateUser');
+
+// Réinitialiser le mot de passe
+Route::post('/users/{id}/reset-password', [AdminController::class, 'resetPassword'])->name('resetPassword');
+
 
