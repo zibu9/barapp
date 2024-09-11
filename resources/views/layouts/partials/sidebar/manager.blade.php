@@ -9,7 +9,7 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('manager.transactions.create') }}" class="nav-link">
             <i class="fa fa-plus nav-icon"></i>
             <p>Nouveau
             <span class="badge badge-success right">New</span>

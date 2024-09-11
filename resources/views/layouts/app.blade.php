@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- JQVMap -->
   <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css') }}">
+  @yield('css')
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
   <!-- overlayScrollbars -->
@@ -29,7 +30,6 @@
   <link rel="icon" type="image/x-icon" href="{{ asset('dist/img/Shortr50.png') }}">
   <link rel="shortcut icon" href="{{ asset('dist/img/Shortr50.png') }}" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  @yield('css')
   @livewireStyles
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
