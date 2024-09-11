@@ -55,6 +55,7 @@ class FortifyServiceProvider extends ServiceProvider
                         ->orWhere('phone', $request->email)
                         ->orWhere('username', $request->email)
                         ->first();
+            if($user && ($user->status != 1)){abort(403);}
 
             if ($user && Hash::check($request->password, $user->password)) {
                 return $user;
