@@ -1,10 +1,10 @@
 @manager
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-        <i class="nav-icon fa fa-users"></i>
+        <i class="fas fa-dumpster"></i>
         <p>
-        Temoins
-        <i class="right fas fa-angle-left"></i>
+            Transactions
+            <i class="right fas fa-angle-left"></i>
         </p>
     </a>
     <ul class="nav nav-treeview">

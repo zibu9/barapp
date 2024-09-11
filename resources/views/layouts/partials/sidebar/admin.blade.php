@@ -40,9 +40,9 @@
     <a href="" class="nav-link">
         <i class="fas fa-dumpster"></i>
         <p>
-        Transactions
-        <span class="right badge badge-success">E/S</span>
-      </p>
+            Transactions
+            <span class="right badge badge-success">E/S</span>
+        </p>
     </a>
 </li>
 @endadmin

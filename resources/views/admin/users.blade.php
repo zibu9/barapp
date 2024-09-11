@@ -18,6 +18,14 @@
                 </div>
             </div>
         </div>
+        <div class="content">
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible">
+                    {{ session('success') }}
+                </div>
+            @endif
+            <!-- Le reste de votre contenu -->
+        </div>
 
         <!-- Main content -->
         <div class="container-fluid">
