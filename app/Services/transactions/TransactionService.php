@@ -21,7 +21,7 @@ class TransactionService
 
             $stock = Stock::firstOrNew([
                 'product_id' => $transactionData['product_id'],
-                'operation_date' => $transactionData['date_op']
+                'operation_date' => $transactionData['operation_date']
             ]);
 
             if ($transactionData['designation'] === 'entrée') {

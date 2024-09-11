@@ -41,3 +41,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [AuthController::class, 'index'])->name('home');
 });
 
+Route::get('/products/{id}/prices', [ProductController::class, 'getPrices']);

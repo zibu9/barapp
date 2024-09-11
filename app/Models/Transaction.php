@@ -10,8 +10,7 @@ class Transaction extends Model
     use HasFactory;
     protected $fillable = [
         'type',
-        'entrees',
-        'sorties',
+        'designation',
         'stock_initial',
         'stock_final',
         'quantity',
@@ -19,7 +18,7 @@ class Transaction extends Model
         'sale_price_per_locker',
         'purchase_price_per_bottle',
         'selling_price_per_bottle',
-        'date_op',
+        'operation_date',
     ];
 
     public function product()

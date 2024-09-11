@@ -23,8 +23,13 @@ class TransactionController extends Controller
 
     public function store(TransactionRequest $request)
     {
-        // Toutes les données sont automatiquement validées grâce à TransactionRequest
         $validatedData = $request->validated();
+        $product = Product::findOrFail($validatedData['product_id']);
+        // Ajouter les prix actifs du produit dans les données validées
+        $validatedData['purchase_price_per_locker'] = $product->purchase_price_per_locker;
+        $validatedData['sale_price_per_locker'] = $product->sale_price_per_locker;
+        $validatedData['purchase_price_per_bottle'] = $product->purchase_price_per_bottle;
+        $validatedData['selling_price_per_bottle'] = $product->selling_price_per_bottle;
 
         // Appel du service pour traiter la transaction
         $result = $this->transactionService->processTransaction($validatedData);
@@ -34,6 +39,6 @@ class TransactionController extends Controller
             return redirect()->back()->with('success', 'Transaction effectuée avec succès.');
         }
 
-        return redirect()->back()->withErrors('Échec de la transaction.');
+        return redirect()->back()->withErrors(['message' => 'Échec de la transaction.']);
     }
 }

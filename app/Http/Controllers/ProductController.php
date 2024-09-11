@@ -60,4 +60,16 @@ class ProductController extends Controller
         return redirect()->route('products.index')
             ->with('success', 'Product deleted successfully');
     }
+
+    public function getPrices($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return response()->json([
+            'purchase_price_per_locker' => $product->purchase_price_per_locker,
+            'sale_price_per_locker' => $product->sale_price_per_locker,
+            'purchase_price_per_bottle' => $product->purchase_price_per_bottle,
+            'selling_price_per_bottle' => $product->selling_price_per_bottle,
+        ]);
+    }
 }

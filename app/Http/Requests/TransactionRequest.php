@@ -32,7 +32,7 @@ class TransactionRequest extends FormRequest
             'sale_price_per_locker' => 'required|numeric',
             'purchase_price_per_bottle' => 'required|numeric',
             'selling_price_per_bottle' => 'required|numeric',
-            'date_op' => 'required|date',
+            'operation_date' => 'required|date',
         ];
     }
 
@@ -56,7 +56,7 @@ class TransactionRequest extends FormRequest
             'sale_price_per_locker.required' => 'Le prix de vente par casier est requis.',
             'purchase_price_per_bottle.required' => 'Le prix d\'achat par bouteille est requis.',
             'selling_price_per_bottle.required' => 'Le prix de vente par bouteille est requis.',
-            'date_op.required' => 'La date de l\'opération est requise.',
+            'operation_date.required' => 'La date de l\'opération est requise.',
         ];
     }
 }

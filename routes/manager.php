@@ -6,3 +6,4 @@ use App\Http\Controllers\TransactionController;
 
 Route::get('/', [ManagerController::class, 'index'])->name('index');
 Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
+Route::post('/transactions/store', [TransactionController::class, 'store'])->name('transactions.store');
