@@ -13,8 +13,8 @@ class Stock extends Model
         'product_id',
         'entries',
         'exits',
-        'final_stock',
         'initial_stock',
+        'final_stock',
         'operation_date',
     ];
 

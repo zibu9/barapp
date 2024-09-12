@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Http\Request;
 use App\Http\Requests\TransactionRequest;
 use App\Services\Transactions\TransactionService;
 
@@ -13,6 +14,13 @@ class TransactionController extends Controller
     public function __construct(TransactionService $transactionService)
     {
         $this->transactionService = $transactionService;
+    }
+
+    public function index(Request $request)
+    {
+        $products = Product::all();
+        $transactions = $this->transactionService->getFilteredTransactions($request->all());
+        return view('transactions.index', compact('transactions', 'products'));
     }
 
     public function create()
@@ -41,4 +49,6 @@ class TransactionController extends Controller
 
         return redirect()->back()->withErrors(['message' => 'Échec de la transaction.']);
     }
+
+
 }

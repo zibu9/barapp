@@ -50,4 +50,18 @@ class TransactionService
         });
     }
 
+    public function getFilteredTransactions(array $filters)
+    {
+        $query = Transaction::query();
+
+        if (isset($filters['date'])) {
+            $query->whereDate('operation_date', $filters['date']);
+        }
+
+        if (isset($filters['product_id'])) {
+            $query->where('product_id', $filters['product_id']);
+        }
+
+        return $query->orderBy('operation_date', 'desc')->get();
+    }
 }
