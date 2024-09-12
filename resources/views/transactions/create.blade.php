@@ -10,20 +10,36 @@
 
 @section('main')
 <section class="content">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Admin</a></li>
+                    <li class="breadcrumb-item active">Home</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <div class="content">
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible">
+                {{ session('success') }}
+            </div>
+        @endif
+        <!-- Le reste de votre contenu -->
+        @if ($errors->has('message'))
+            <div class="alert alert-danger">
+                {{ $errors->first('message') }}
+            </div>
+        @endif
+    </div>
     <div class="container-fluid">
-        <div class="content">
-            @if(session('success'))
-                <div class="alert alert-success alert-dismissible">
-                    {{ session('success') }}
-                </div>
-            @endif
-            <!-- Le reste de votre contenu -->
-            @if ($errors->has('message'))
-                <div class="alert alert-danger">
-                    {{ $errors->first('message') }}
-                </div>
-            @endif
-        </div>
 
 
         <form action="{{ route('manager.transactions.store') }}" method="POST">

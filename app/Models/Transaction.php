@@ -14,6 +14,7 @@ class Transaction extends Model
         'stock_initial',
         'stock_final',
         'quantity',
+        'product_id',
         'purchase_price_per_locker',
         'sale_price_per_locker',
         'purchase_price_per_bottle',

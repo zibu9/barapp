@@ -18,17 +18,17 @@
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
+        <div class="content">
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible">
+                {{ session('success') }}
+            </div>
+            @endif
+            <!-- Le reste de votre contenu -->
+        </div>
         <!-- /.content-header -->
         <div class="container-fluid">
 
-        </div>
-        <div class="content">
-            @if(session('success'))
-                <div class="alert alert-success alert-dismissible">
-                    {{ session('success') }}
-                </div>
-            @endif
-            <!-- Le reste de votre contenu -->
         </div>
     </section>
 @endsection
