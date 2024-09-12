@@ -109,12 +109,10 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-
+                <button type="submit" class="btn btn-primary m-2">Enregistrer</button>
             </div>
 
-            <!-- Ajout des autres champs nécessaires -->
 
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
         </form>
     </div>
 </section>
