@@ -11,16 +11,20 @@
 @section('main')
 <section class="content">
     <div class="container-fluid">
-        @if ($errors->has('message'))
-            <div class="alert alert-danger">
-                {{ $errors->first('message') }}
-            </div>
-        @endif
-        @if(session('success'))
-            <div class="alert alert-success alert-dismissible">
-                {{ session('success') }}
-            </div>
-        @endif
+        <div class="content">
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible">
+                    {{ session('success') }}
+                </div>
+            @endif
+            <!-- Le reste de votre contenu -->
+            @if ($errors->has('message'))
+                <div class="alert alert-danger">
+                    {{ $errors->first('message') }}
+                </div>
+            @endif
+        </div>
+
 
         <form action="{{ route('manager.transactions.store') }}" method="POST">
             @csrf

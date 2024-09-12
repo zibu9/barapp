@@ -8,12 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class TransactionService
 {
-    /**
-     * Créer une nouvelle transaction et mettre à jour le stock
-     *
-     * @param array $transactionData
-     * @return bool
-     */
+
     public function processTransaction(array $transactionData): bool
     {
         return DB::transaction(function () use ($transactionData) {
@@ -30,7 +25,6 @@ class TransactionService
                 $stock->exits += $transactionData['quantity'];
             }
 
-            // Mise à jour du stock initial et final
             $stock->initial_stock = $stock->final_stock ?? 0;
             $stock->final_stock = $stock->initial_stock + ($stock->entries - $stock->exits);
             $stock->save();

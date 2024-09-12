@@ -11,7 +11,7 @@
         <li class="nav-item">
         <a href="{{ route('manager.transactions.create') }}" class="nav-link">
             <i class="fa fa-plus nav-icon"></i>
-            <p>Nouveau
+            <p>Nouvelle
             <span class="badge badge-success right">New</span>
             </p>
         </a>
