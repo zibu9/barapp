@@ -84,6 +84,11 @@
     <script src="{{ asset('plugins/flot-old/jquery.flot.resize.min.js') }}"></script>
     <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
     <script src="{{ asset('plugins/flot-old/jquery.flot.pie.min.js') }}"></script>
+    <!-- DataTables -->
+    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     @yield('script')
     <script>
         document.addEventListener("DOMContentLoaded", function() {
